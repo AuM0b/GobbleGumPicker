@@ -11,7 +11,7 @@ namespace GobbleGumPicker
 		public Main()
 		{
 			InitializeComponent();
-			VersionLabel.Text = ProductVersion;
+			Init();
 		}
 
 		public class Gobblegum
@@ -126,50 +126,78 @@ namespace GobbleGumPicker
 		private bool EnableLeveled = true;
 		private bool EnableWhimsical = true;
 
+		private void Init()
+		{
+			RefreshTooltips();
+
+			VersionLabel.Text = ProductVersion;
+		}
+
 		private void GobblegumMachineClick(object sender, EventArgs e)
 		{
 			TutorialLabel.Visible = false;
+
 			GenerateGobblegumSet();
+			RefreshGobblegumsDisplay();
+			RefreshTooltips();
 		}
 
 		private void LeveledCheckedChanged(object sender, EventArgs e)
 		{
 			EnableLeveled = LeveledCheckBox.Checked;
+			RefreshTooltips();
 		}
 
 		private void WhimsicalCheckedChanged(object sender, EventArgs e)
 		{
 			EnableWhimsical = WhimsicalCheckBox.Checked;
+			RefreshTooltips();
+		}
+
+		private void RefreshTooltips()
+		{
+			ToolTip.SetToolTip(LeveledCheckBox, (EnableLeveled ? "Disable" : "Enable") + " rolling of level-awarded GobbleGums (Impatient, Sword Flay, etc.)");
+			ToolTip.SetToolTip(WhimsicalCheckBox, (EnableWhimsical ? "Disable" : "Enable") + " rolling of Whimsical GobbleGums (Eye Candy, Tone Death, etc.)");
+
+			if (CurrentSet.Count < 5) return;
+
+			ToolTip.SetToolTip(GobbleGum1Image, CurrentSet[0].description);
+			ToolTip.SetToolTip(GobbleGum2Image, CurrentSet[1].description);
+			ToolTip.SetToolTip(GobbleGum3Image, CurrentSet[2].description);
+			ToolTip.SetToolTip(GobbleGum4Image, CurrentSet[3].description);
+			ToolTip.SetToolTip(GobbleGum5Image, CurrentSet[4].description);
+		}
+
+		private void RefreshGobblegumsDisplay()
+		{
+			if (CurrentSet.Count < 5) return;
+
+			GobbleGum1Label.Text = CurrentSet[0].name;
+			GobbleGum1Image.Image = CurrentSet[0].image;
+
+			GobbleGum2Label.Text = CurrentSet[1].name;
+			GobbleGum2Image.Image = CurrentSet[1].image;
+
+			GobbleGum3Label.Text = CurrentSet[2].name;
+			GobbleGum3Image.Image = CurrentSet[2].image;
+
+			GobbleGum4Label.Text = CurrentSet[3].name;
+			GobbleGum4Image.Image = CurrentSet[3].image;
+
+			GobbleGum5Label.Text = CurrentSet[4].name;
+			GobbleGum5Image.Image = CurrentSet[4].image;
 		}
 
 		private void GenerateGobblegumSet()
 		{
-			CurrentSet = new List<Gobblegum>();
-
-			Gobblegum GobbleGum1 = GenerateGobblegum();
-			GobbleGum1Label.Text = GobbleGum1.name;
-			GobbleGum1Image.Image = GobbleGum1.image;
-			ToolTip.SetToolTip(GobbleGum1Image, GobbleGum1.description);
-
-			Gobblegum GobbleGum2 = GenerateGobblegum();
-			GobbleGum2Label.Text = GobbleGum2.name;
-			GobbleGum2Image.Image = GobbleGum2.image;
-			ToolTip.SetToolTip(GobbleGum2Image, GobbleGum2.description);
-
-			Gobblegum GobbleGum3 = GenerateGobblegum();
-			GobbleGum3Label.Text = GobbleGum3.name;
-			GobbleGum3Image.Image = GobbleGum3.image;
-			ToolTip.SetToolTip(GobbleGum3Image, GobbleGum3.description);
-
-			Gobblegum GobbleGum4 = GenerateGobblegum();
-			GobbleGum4Label.Text = GobbleGum4.name;
-			GobbleGum4Image.Image = GobbleGum4.image;
-			ToolTip.SetToolTip(GobbleGum4Image, GobbleGum4.description);
-
-			Gobblegum GobbleGum5 = GenerateGobblegum();
-			GobbleGum5Label.Text = GobbleGum5.name;
-			GobbleGum5Image.Image = GobbleGum5.image;
-			ToolTip.SetToolTip(GobbleGum5Image, GobbleGum5.description);
+			CurrentSet = new List<Gobblegum>
+			{
+				GenerateGobblegum(),
+				GenerateGobblegum(),
+				GenerateGobblegum(),
+				GenerateGobblegum(),
+				GenerateGobblegum()
+			};
 		}
 
 		private Gobblegum GenerateGobblegum()
@@ -195,16 +223,14 @@ namespace GobbleGumPicker
 				Gobblegums.Remove(Gobblegums.Find(gobblegum => gobblegum.name == "Alchemical Antithesis"));
 			}
 
-			Gobblegum generatedGobblegum = Gobblegums[RandomProvider.GetThreadRandom().Next(0, Gobblegums.Count)];
+			Gobblegum GeneratedGobblegum = Gobblegums[RandomProvider.GetThreadRandom().Next(0, Gobblegums.Count)];
 
-			while (CurrentSet.Contains(generatedGobblegum) && Gobblegums.Count >= 5)
+			while (CurrentSet.Contains(GeneratedGobblegum) && Gobblegums.Count >= 5)
 			{
-				generatedGobblegum = Gobblegums[RandomProvider.GetThreadRandom().Next(0, Gobblegums.Count)];
+				GeneratedGobblegum = Gobblegums[RandomProvider.GetThreadRandom().Next(0, Gobblegums.Count)];
 			}
 
-			CurrentSet.Add(generatedGobblegum);
-
-			return generatedGobblegum;
+			return GeneratedGobblegum;
 		}
 	}
 }

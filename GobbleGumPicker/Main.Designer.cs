@@ -18,6 +18,8 @@
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
 			this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
+			this.LeveledCheckBox = new System.Windows.Forms.CheckBox();
+			this.WhimsicalCheckBox = new System.Windows.Forms.CheckBox();
 			this.GobblegumButton = new System.Windows.Forms.PictureBox();
 			this.GobbleGum1Image = new System.Windows.Forms.PictureBox();
 			this.GobbleGum2Image = new System.Windows.Forms.PictureBox();
@@ -30,8 +32,6 @@
 			this.GobbleGum3Label = new System.Windows.Forms.Label();
 			this.GobbleGum4Label = new System.Windows.Forms.Label();
 			this.GobbleGum5Label = new System.Windows.Forms.Label();
-			this.LeveledCheckBox = new System.Windows.Forms.CheckBox();
-			this.WhimsicalCheckBox = new System.Windows.Forms.CheckBox();
 			this.VersionLabel = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.GobblegumButton)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.GobbleGum1Image)).BeginInit();
@@ -40,6 +40,52 @@
 			((System.ComponentModel.ISupportInitialize)(this.GobbleGum4Image)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.GobbleGum5Image)).BeginInit();
 			this.SuspendLayout();
+			// 
+			// LeveledCheckBox
+			// 
+			this.LeveledCheckBox.Appearance = System.Windows.Forms.Appearance.Button;
+			this.LeveledCheckBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.LeveledCheckBox.Checked = true;
+			this.LeveledCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.LeveledCheckBox.FlatAppearance.BorderSize = 0;
+			this.LeveledCheckBox.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(88)))), ((int)(((byte)(5)))));
+			this.LeveledCheckBox.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(44)))), ((int)(((byte)(5)))));
+			this.LeveledCheckBox.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(122)))), ((int)(((byte)(5)))));
+			this.LeveledCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.LeveledCheckBox.Font = new System.Drawing.Font("Escom-Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.LeveledCheckBox.ForeColor = System.Drawing.Color.White;
+			this.LeveledCheckBox.Location = new System.Drawing.Point(586, 12);
+			this.LeveledCheckBox.Name = "LeveledCheckBox";
+			this.LeveledCheckBox.Size = new System.Drawing.Size(98, 28);
+			this.LeveledCheckBox.TabIndex = 15;
+			this.LeveledCheckBox.TabStop = false;
+			this.LeveledCheckBox.Text = "Leveled";
+			this.LeveledCheckBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.LeveledCheckBox.UseVisualStyleBackColor = false;
+			this.LeveledCheckBox.CheckedChanged += new System.EventHandler(this.LeveledCheckedChanged);
+			// 
+			// WhimsicalCheckBox
+			// 
+			this.WhimsicalCheckBox.Appearance = System.Windows.Forms.Appearance.Button;
+			this.WhimsicalCheckBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.WhimsicalCheckBox.Checked = true;
+			this.WhimsicalCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.WhimsicalCheckBox.FlatAppearance.BorderSize = 0;
+			this.WhimsicalCheckBox.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(88)))), ((int)(((byte)(5)))));
+			this.WhimsicalCheckBox.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(44)))), ((int)(((byte)(5)))));
+			this.WhimsicalCheckBox.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(122)))), ((int)(((byte)(5)))));
+			this.WhimsicalCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.WhimsicalCheckBox.Font = new System.Drawing.Font("Escom-Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.WhimsicalCheckBox.ForeColor = System.Drawing.Color.White;
+			this.WhimsicalCheckBox.Location = new System.Drawing.Point(690, 12);
+			this.WhimsicalCheckBox.Name = "WhimsicalCheckBox";
+			this.WhimsicalCheckBox.Size = new System.Drawing.Size(98, 28);
+			this.WhimsicalCheckBox.TabIndex = 16;
+			this.WhimsicalCheckBox.TabStop = false;
+			this.WhimsicalCheckBox.Text = "Whimsical";
+			this.WhimsicalCheckBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.WhimsicalCheckBox.UseVisualStyleBackColor = false;
+			this.WhimsicalCheckBox.CheckedChanged += new System.EventHandler(this.WhimsicalCheckedChanged);
 			// 
 			// GobblegumButton
 			// 
@@ -160,54 +206,6 @@
 			this.GobbleGum5Label.TabIndex = 13;
 			this.GobbleGum5Label.TextAlign = System.Drawing.ContentAlignment.TopCenter;
 			// 
-			// LeveledCheckBox
-			// 
-			this.LeveledCheckBox.Appearance = System.Windows.Forms.Appearance.Button;
-			this.LeveledCheckBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-			this.LeveledCheckBox.Checked = true;
-			this.LeveledCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.LeveledCheckBox.FlatAppearance.BorderSize = 0;
-			this.LeveledCheckBox.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(88)))), ((int)(((byte)(5)))));
-			this.LeveledCheckBox.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(44)))), ((int)(((byte)(5)))));
-			this.LeveledCheckBox.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(122)))), ((int)(((byte)(5)))));
-			this.LeveledCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.LeveledCheckBox.Font = new System.Drawing.Font("Escom-Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.LeveledCheckBox.ForeColor = System.Drawing.Color.White;
-			this.LeveledCheckBox.Location = new System.Drawing.Point(586, 12);
-			this.LeveledCheckBox.Name = "LeveledCheckBox";
-			this.LeveledCheckBox.Size = new System.Drawing.Size(98, 28);
-			this.LeveledCheckBox.TabIndex = 15;
-			this.LeveledCheckBox.TabStop = false;
-			this.LeveledCheckBox.Text = "Leveled";
-			this.LeveledCheckBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.ToolTip.SetToolTip(this.LeveledCheckBox, "Enable or disable rolling of level-awarded GobbleGums (Impatient, Sword Flay, etc.)");
-			this.LeveledCheckBox.UseVisualStyleBackColor = false;
-			this.LeveledCheckBox.CheckedChanged += new System.EventHandler(this.LeveledCheckedChanged);
-			// 
-			// WhimsicalCheckBox
-			// 
-			this.WhimsicalCheckBox.Appearance = System.Windows.Forms.Appearance.Button;
-			this.WhimsicalCheckBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-			this.WhimsicalCheckBox.Checked = true;
-			this.WhimsicalCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.WhimsicalCheckBox.FlatAppearance.BorderSize = 0;
-			this.WhimsicalCheckBox.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(88)))), ((int)(((byte)(5)))));
-			this.WhimsicalCheckBox.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(44)))), ((int)(((byte)(5)))));
-			this.WhimsicalCheckBox.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(122)))), ((int)(((byte)(5)))));
-			this.WhimsicalCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.WhimsicalCheckBox.Font = new System.Drawing.Font("Escom-Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.WhimsicalCheckBox.ForeColor = System.Drawing.Color.White;
-			this.WhimsicalCheckBox.Location = new System.Drawing.Point(690, 12);
-			this.WhimsicalCheckBox.Name = "WhimsicalCheckBox";
-			this.WhimsicalCheckBox.Size = new System.Drawing.Size(98, 28);
-			this.WhimsicalCheckBox.TabIndex = 16;
-			this.WhimsicalCheckBox.TabStop = false;
-			this.WhimsicalCheckBox.Text = "Whimsical";
-			this.WhimsicalCheckBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.ToolTip.SetToolTip(this.WhimsicalCheckBox, "Enable or disable rolling of Whimsical GobbleGums (Eye Candy, Tone Death, etc.)");
-			this.WhimsicalCheckBox.UseVisualStyleBackColor = false;
-			this.WhimsicalCheckBox.CheckedChanged += new System.EventHandler(this.WhimsicalCheckedChanged);
-			// 
 			// VersionLabel
 			// 
 			this.VersionLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -255,6 +253,7 @@
 			((System.ComponentModel.ISupportInitialize)(this.GobbleGum5Image)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
+
 		}
 		
 		private System.Windows.Forms.PictureBox GobbleGum1Image;
