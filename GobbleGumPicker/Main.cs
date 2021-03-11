@@ -1,8 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Linq;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using GobbleGumPicker.Properties;
+using HtmlAgilityPack;
 
 namespace GobbleGumPicker
 {
@@ -49,7 +52,45 @@ namespace GobbleGumPicker
 			}
 		}
 
-		public static readonly List<Gobblegum> GobblegumDatabase = new List<Gobblegum>()
+		public class Recipe
+		{
+			public Gobblegum firstInput;
+			public Gobblegum secondInput;
+			public Gobblegum thirdInput;
+
+			public Gobblegum output;
+
+			public Recipe() { }
+
+			public Recipe(Gobblegum recipeFirstInput, Gobblegum recipeOutput)
+			{
+				firstInput = recipeFirstInput;
+				secondInput = null;
+				thirdInput = null;
+
+				output = recipeOutput;
+			}
+
+			public Recipe(Gobblegum recipeFirstInput, Gobblegum recipeSecondInput, Gobblegum recipeOutput)
+			{
+				firstInput = recipeFirstInput;
+				secondInput = recipeSecondInput;
+				thirdInput = null;
+
+				output = recipeOutput;
+			}
+
+			public Recipe(Gobblegum recipeFirstInput, Gobblegum recipeSecondInput, Gobblegum recipeThirdInput, Gobblegum recipeOutput)
+			{
+				firstInput = recipeFirstInput;
+				secondInput = recipeSecondInput;
+				thirdInput = recipeThirdInput;
+
+				output = recipeOutput;
+			}
+		}
+
+		private static readonly List<Gobblegum> GobblegumDatabase = new List<Gobblegum>()
 		{
 			new Gobblegum("Always Done Swiftly", Resources.AlwaysDoneSwiftly, Gobblegum.Color.Blue, Gobblegum.Rarity.Classic, "Activates Immediately (Lasts 3 full rounds)\nWalk faster while aiming. Raise and lower your weapon to aim more quickly."),
 			new Gobblegum("Arms Grace", Resources.ArmsGrace, Gobblegum.Color.Orange, Gobblegum.Rarity.Classic, "Activates Immediately (Lasts until next respawn)\nRespawn with the guns you had when you bled out."),
@@ -121,14 +162,25 @@ namespace GobbleGumPicker
 			new Gobblegum("Shopping Free", Resources.ShoppingFree, Gobblegum.Color.Green, Gobblegum.Rarity.UltraRareMega, "Activates Immediately (Lasts 1 minute)\nAll purchases are free.")
 		};
 
-		private List<Gobblegum> CurrentSet = new List<Gobblegum>();
+		private List<Gobblegum> CurrentGobblegumSet = new List<Gobblegum>();
+		private List<Recipe> CurrentNewtonsCookbook = new List<Recipe>();
+
+		private readonly int NewtonsCookbookRefreshIntervalInSeconds = 60;
+
+		private bool NewtonsCookbookOpened = false;
 
 		private bool EnableLeveled = true;
 		private bool EnableWhimsical = true;
 
+		private int NewtonsCookbookLastRefreshTime = -1;
+
 		private void Init()
 		{
+			GetNewtonsCookbook();
+
 			RefreshTooltips();
+			RefreshGobblegumsDisplay();
+			RefreshNewtonsCookbookDisplay();
 
 			VersionLabel.Text = ProductVersion;
 		}
@@ -138,6 +190,7 @@ namespace GobbleGumPicker
 			TutorialLabel.Visible = false;
 
 			GenerateGobblegumSet();
+
 			RefreshGobblegumsDisplay();
 			RefreshTooltips();
 		}
@@ -154,43 +207,265 @@ namespace GobbleGumPicker
 			RefreshTooltips();
 		}
 
+		private void NewtonsCookbookOpenClick(object sender, EventArgs e)
+		{
+			NewtonsCookbookOpened = true;
+			SetNewtonsCookbookStatus("Fetching recipes...");
+			if (GetNewtonsCookbook())
+			{
+				SetNewtonsCookbookStatus(string.Empty);
+			}
+			else
+			{
+				SetNewtonsCookbookStatus("Failed to load Newton's Cookbook!");
+			}
+			RefreshNewtonsCookbookDisplay();
+			RefreshTooltips();
+		}
+
+		private void NewtonsCookbookCloseClick(object sender, EventArgs e)
+		{
+			NewtonsCookbookOpened = false;
+			RefreshNewtonsCookbookDisplay();
+		}
+
 		private void RefreshTooltips()
 		{
 			ToolTip.SetToolTip(LeveledCheckBox, (EnableLeveled ? "Disable" : "Enable") + " rolling of level-awarded GobbleGums (Impatient, Sword Flay, etc.)");
 			ToolTip.SetToolTip(WhimsicalCheckBox, (EnableWhimsical ? "Disable" : "Enable") + " rolling of Whimsical GobbleGums (Eye Candy, Tone Death, etc.)");
 
-			if (CurrentSet.Count < 5) return;
+			if (CurrentGobblegumSet.Count == 5)
+			{
+				ToolTip.SetToolTip(Gobblegum1Image, CurrentGobblegumSet[0].description);
+				ToolTip.SetToolTip(Gobblegum2Image, CurrentGobblegumSet[1].description);
+				ToolTip.SetToolTip(Gobblegum3Image, CurrentGobblegumSet[2].description);
+				ToolTip.SetToolTip(Gobblegum4Image, CurrentGobblegumSet[3].description);
+				ToolTip.SetToolTip(Gobblegum5Image, CurrentGobblegumSet[4].description);
+			}
+			else
+			{
+				ToolTip.SetToolTip(Gobblegum1Image, string.Empty);
+				ToolTip.SetToolTip(Gobblegum2Image, string.Empty);
+				ToolTip.SetToolTip(Gobblegum3Image, string.Empty);
+				ToolTip.SetToolTip(Gobblegum4Image, string.Empty);
+				ToolTip.SetToolTip(Gobblegum5Image, string.Empty);
+			}
 
-			ToolTip.SetToolTip(GobbleGum1Image, CurrentSet[0].description);
-			ToolTip.SetToolTip(GobbleGum2Image, CurrentSet[1].description);
-			ToolTip.SetToolTip(GobbleGum3Image, CurrentSet[2].description);
-			ToolTip.SetToolTip(GobbleGum4Image, CurrentSet[3].description);
-			ToolTip.SetToolTip(GobbleGum5Image, CurrentSet[4].description);
+			if (CurrentNewtonsCookbook.Count == 3)
+			{
+				ToolTip.SetToolTip(NewtonsCookbookOutput1Image, CurrentNewtonsCookbook[0].output.description);
+
+				ToolTip.SetToolTip(NewtonsCookbookInput1_1Image, CurrentNewtonsCookbook[0].firstInput.description);
+				ToolTip.SetToolTip(NewtonsCookbookInput1_2Image, CurrentNewtonsCookbook[0].secondInput.description);
+				ToolTip.SetToolTip(NewtonsCookbookInput1_3Image, CurrentNewtonsCookbook[0].thirdInput.description);
+
+				ToolTip.SetToolTip(NewtonsCookbookOutput2Image, CurrentNewtonsCookbook[1].output.description);
+
+				ToolTip.SetToolTip(NewtonsCookbookInput2_1Image, CurrentNewtonsCookbook[1].firstInput.description);
+				ToolTip.SetToolTip(NewtonsCookbookInput2_2Image, CurrentNewtonsCookbook[1].secondInput.description);
+				ToolTip.SetToolTip(NewtonsCookbookInput2_3Image, CurrentNewtonsCookbook[1].thirdInput.description);
+
+				ToolTip.SetToolTip(NewtonsCookbookOutput3Image, CurrentNewtonsCookbook[2].output.description);
+
+				ToolTip.SetToolTip(NewtonsCookbookInput3_1Image, CurrentNewtonsCookbook[2].firstInput.description);
+				ToolTip.SetToolTip(NewtonsCookbookInput3_2Image, CurrentNewtonsCookbook[2].secondInput.description);
+				ToolTip.SetToolTip(NewtonsCookbookInput3_3Image, CurrentNewtonsCookbook[2].thirdInput.description);
+			}
+			else
+			{
+				ToolTip.SetToolTip(NewtonsCookbookOutput1Image, string.Empty);
+
+				ToolTip.SetToolTip(NewtonsCookbookInput1_1Image, string.Empty);
+				ToolTip.SetToolTip(NewtonsCookbookInput1_2Image, string.Empty);
+				ToolTip.SetToolTip(NewtonsCookbookInput1_3Image, string.Empty);
+
+				ToolTip.SetToolTip(NewtonsCookbookOutput2Image, string.Empty);
+
+				ToolTip.SetToolTip(NewtonsCookbookInput2_1Image, string.Empty);
+				ToolTip.SetToolTip(NewtonsCookbookInput2_2Image, string.Empty);
+				ToolTip.SetToolTip(NewtonsCookbookInput2_3Image, string.Empty);
+
+				ToolTip.SetToolTip(NewtonsCookbookOutput3Image, string.Empty);
+
+				ToolTip.SetToolTip(NewtonsCookbookInput3_1Image, string.Empty);
+				ToolTip.SetToolTip(NewtonsCookbookInput3_2Image, string.Empty);
+				ToolTip.SetToolTip(NewtonsCookbookInput3_3Image, string.Empty);
+			}
 		}
 
 		private void RefreshGobblegumsDisplay()
 		{
-			if (CurrentSet.Count < 5) return;
+			if (CurrentGobblegumSet.Count == 5)
+			{
+				Gobblegum1Label.Text = CurrentGobblegumSet[0].name;
+				Gobblegum1Image.Image = CurrentGobblegumSet[0].image;
 
-			GobbleGum1Label.Text = CurrentSet[0].name;
-			GobbleGum1Image.Image = CurrentSet[0].image;
+				Gobblegum2Label.Text = CurrentGobblegumSet[1].name;
+				Gobblegum2Image.Image = CurrentGobblegumSet[1].image;
 
-			GobbleGum2Label.Text = CurrentSet[1].name;
-			GobbleGum2Image.Image = CurrentSet[1].image;
+				Gobblegum3Label.Text = CurrentGobblegumSet[2].name;
+				Gobblegum3Image.Image = CurrentGobblegumSet[2].image;
 
-			GobbleGum3Label.Text = CurrentSet[2].name;
-			GobbleGum3Image.Image = CurrentSet[2].image;
+				Gobblegum4Label.Text = CurrentGobblegumSet[3].name;
+				Gobblegum4Image.Image = CurrentGobblegumSet[3].image;
 
-			GobbleGum4Label.Text = CurrentSet[3].name;
-			GobbleGum4Image.Image = CurrentSet[3].image;
+				Gobblegum5Label.Text = CurrentGobblegumSet[4].name;
+				Gobblegum5Image.Image = CurrentGobblegumSet[4].image;
+			}
+			else
+			{
+				Gobblegum1Label.Text = string.Empty;
+				Gobblegum1Image.Image = null;
 
-			GobbleGum5Label.Text = CurrentSet[4].name;
-			GobbleGum5Image.Image = CurrentSet[4].image;
+				Gobblegum2Label.Text = string.Empty;
+				Gobblegum2Image.Image = null;
+
+				Gobblegum3Label.Text = string.Empty;
+				Gobblegum3Image.Image = null;
+
+				Gobblegum4Label.Text = string.Empty;
+				Gobblegum4Image.Image = null;
+
+				Gobblegum5Label.Text = string.Empty;
+				Gobblegum5Image.Image = null;
+			}
+		}
+
+		private void RefreshNewtonsCookbookDisplay()
+		{
+			NewtonsCookbookBackground.Visible = NewtonsCookbookOpened;
+
+			NewtonsCookbookOnlineProviderLabel.Visible = NewtonsCookbookOpened;
+			NewtonsCookbookCloseButton.BringToFront();
+
+			NewtonsCookbookCloseButton.Visible = NewtonsCookbookOpened;
+			NewtonsCookbookCloseButton.BringToFront();
+
+			NewtonsCookbookStatusLabel.Visible = !string.IsNullOrWhiteSpace(NewtonsCookbookStatusLabel.Text) && NewtonsCookbookOpened;
+
+			NewtonsCookbookOutput1Image.Visible = NewtonsCookbookOpened;
+			NewtonsCookbookOutput1Image.BringToFront();
+			NewtonsCookbookOutput1Label.Visible = NewtonsCookbookOpened;
+			NewtonsCookbookOutput1Label.BringToFront();
+
+			NewtonsCookbookInput1_1Image.Visible = NewtonsCookbookOpened;
+			NewtonsCookbookInput1_1Image.BringToFront();
+			NewtonsCookbookInput1_1Label.Visible = NewtonsCookbookOpened;
+			NewtonsCookbookInput1_1Label.BringToFront();
+			NewtonsCookbookInput1_2Image.Visible = NewtonsCookbookOpened;
+			NewtonsCookbookInput1_2Image.BringToFront();
+			NewtonsCookbookInput1_2Label.Visible = NewtonsCookbookOpened;
+			NewtonsCookbookInput1_2Label.BringToFront();
+			NewtonsCookbookInput1_3Image.Visible = NewtonsCookbookOpened;
+			NewtonsCookbookInput1_3Image.BringToFront();
+			NewtonsCookbookInput1_3Label.Visible = NewtonsCookbookOpened;
+			NewtonsCookbookInput1_3Label.BringToFront();
+
+			NewtonsCookbookOutput2Image.Visible = NewtonsCookbookOpened;
+			NewtonsCookbookOutput2Image.BringToFront();
+			NewtonsCookbookOutput2Label.Visible = NewtonsCookbookOpened;
+			NewtonsCookbookOutput2Label.BringToFront();
+
+			NewtonsCookbookInput2_1Image.Visible = NewtonsCookbookOpened;
+			NewtonsCookbookInput2_1Image.BringToFront();
+			NewtonsCookbookInput2_1Label.Visible = NewtonsCookbookOpened;
+			NewtonsCookbookInput2_1Label.BringToFront();
+			NewtonsCookbookInput2_2Image.Visible = NewtonsCookbookOpened;
+			NewtonsCookbookInput2_2Image.BringToFront();
+			NewtonsCookbookInput2_2Label.Visible = NewtonsCookbookOpened;
+			NewtonsCookbookInput2_2Label.BringToFront();
+			NewtonsCookbookInput2_3Image.Visible = NewtonsCookbookOpened;
+			NewtonsCookbookInput2_3Image.BringToFront();
+			NewtonsCookbookInput2_3Label.Visible = NewtonsCookbookOpened;
+			NewtonsCookbookInput2_3Label.BringToFront();
+
+			NewtonsCookbookOutput3Image.Visible = NewtonsCookbookOpened;
+			NewtonsCookbookOutput3Image.BringToFront();
+			NewtonsCookbookOutput3Label.Visible = NewtonsCookbookOpened;
+			NewtonsCookbookOutput3Label.BringToFront();
+
+			NewtonsCookbookInput3_1Image.Visible = NewtonsCookbookOpened;
+			NewtonsCookbookInput3_1Image.BringToFront();
+			NewtonsCookbookInput3_1Label.Visible = NewtonsCookbookOpened;
+			NewtonsCookbookInput3_1Label.BringToFront();
+			NewtonsCookbookInput3_2Image.Visible = NewtonsCookbookOpened;
+			NewtonsCookbookInput3_2Image.BringToFront();
+			NewtonsCookbookInput3_2Label.Visible = NewtonsCookbookOpened;
+			NewtonsCookbookInput3_2Label.BringToFront();
+			NewtonsCookbookInput3_3Image.Visible = NewtonsCookbookOpened;
+			NewtonsCookbookInput3_3Image.BringToFront();
+			NewtonsCookbookInput3_3Label.Visible = NewtonsCookbookOpened;
+			NewtonsCookbookInput3_3Label.BringToFront();
+
+			if (CurrentNewtonsCookbook.Count == 3)
+			{
+				NewtonsCookbookOutput1Label.Text = CurrentNewtonsCookbook[0].output.name;
+				NewtonsCookbookOutput1Image.Image = CurrentNewtonsCookbook[0].output.image;
+
+				NewtonsCookbookInput1_1Label.Text = CurrentNewtonsCookbook[0].firstInput.name;
+				NewtonsCookbookInput1_1Image.Image = CurrentNewtonsCookbook[0].firstInput.image;
+				NewtonsCookbookInput1_2Label.Text = CurrentNewtonsCookbook[0].secondInput.name;
+				NewtonsCookbookInput1_2Image.Image = CurrentNewtonsCookbook[0].secondInput.image;
+				NewtonsCookbookInput1_3Label.Text = CurrentNewtonsCookbook[0].thirdInput.name;
+				NewtonsCookbookInput1_3Image.Image = CurrentNewtonsCookbook[0].thirdInput.image;
+
+				NewtonsCookbookOutput2Label.Text = CurrentNewtonsCookbook[1].output.name;
+				NewtonsCookbookOutput2Image.Image = CurrentNewtonsCookbook[1].output.image;
+
+				NewtonsCookbookInput2_1Label.Text = CurrentNewtonsCookbook[1].firstInput.name;
+				NewtonsCookbookInput2_1Image.Image = CurrentNewtonsCookbook[1].firstInput.image;
+				NewtonsCookbookInput2_2Label.Text = CurrentNewtonsCookbook[1].secondInput.name;
+				NewtonsCookbookInput2_2Image.Image = CurrentNewtonsCookbook[1].secondInput.image;
+				NewtonsCookbookInput2_3Label.Text = CurrentNewtonsCookbook[1].thirdInput.name;
+				NewtonsCookbookInput2_3Image.Image = CurrentNewtonsCookbook[1].thirdInput.image;
+
+				NewtonsCookbookOutput3Label.Text = CurrentNewtonsCookbook[2].output.name;
+				NewtonsCookbookOutput3Image.Image = CurrentNewtonsCookbook[2].output.image;
+
+				NewtonsCookbookInput3_1Label.Text = CurrentNewtonsCookbook[2].firstInput.name;
+				NewtonsCookbookInput3_1Image.Image = CurrentNewtonsCookbook[2].firstInput.image;
+				NewtonsCookbookInput3_2Label.Text = CurrentNewtonsCookbook[2].secondInput.name;
+				NewtonsCookbookInput3_2Image.Image = CurrentNewtonsCookbook[2].secondInput.image;
+				NewtonsCookbookInput3_3Label.Text = CurrentNewtonsCookbook[2].thirdInput.name;
+				NewtonsCookbookInput3_3Image.Image = CurrentNewtonsCookbook[2].thirdInput.image;
+			}
+			else
+			{
+				NewtonsCookbookOutput1Image.Image = null;
+				NewtonsCookbookOutput1Label.Text = string.Empty;
+
+				NewtonsCookbookInput1_1Image.Image = null;
+				NewtonsCookbookInput1_1Label.Text = string.Empty;
+				NewtonsCookbookInput1_2Image.Image = null;
+				NewtonsCookbookInput1_2Label.Text = string.Empty;
+				NewtonsCookbookInput1_3Image.Image = null;
+				NewtonsCookbookInput1_3Label.Text = string.Empty;
+
+				NewtonsCookbookOutput2Image.Image = null;
+				NewtonsCookbookOutput2Label.Text = string.Empty;
+
+				NewtonsCookbookInput2_1Image.Image = null;
+				NewtonsCookbookInput2_1Label.Text = string.Empty;
+				NewtonsCookbookInput2_2Image.Image = null;
+				NewtonsCookbookInput2_2Label.Text = string.Empty;
+				NewtonsCookbookInput2_3Image.Image = null;
+				NewtonsCookbookInput2_3Label.Text = string.Empty;
+
+				NewtonsCookbookOutput3Image.Image = null;
+				NewtonsCookbookOutput3Label.Text = string.Empty;
+
+				NewtonsCookbookInput3_1Image.Image = null;
+				NewtonsCookbookInput3_1Label.Text = string.Empty;
+				NewtonsCookbookInput3_2Image.Image = null;
+				NewtonsCookbookInput3_2Label.Text = string.Empty;
+				NewtonsCookbookInput3_3Image.Image = null;
+				NewtonsCookbookInput3_3Label.Text = string.Empty;
+			}
 		}
 
 		private void GenerateGobblegumSet()
 		{
-			CurrentSet = new List<Gobblegum>
+			CurrentGobblegumSet = new List<Gobblegum>
 			{
 				GenerateGobblegum(),
 				GenerateGobblegum(),
@@ -225,12 +500,169 @@ namespace GobbleGumPicker
 
 			Gobblegum GeneratedGobblegum = Gobblegums[RandomProvider.GetThreadRandom().Next(0, Gobblegums.Count)];
 
-			while (CurrentSet.Contains(GeneratedGobblegum) && Gobblegums.Count >= 5)
+			while (CurrentGobblegumSet.Contains(GeneratedGobblegum) && Gobblegums.Count >= 5)
 			{
 				GeneratedGobblegum = Gobblegums[RandomProvider.GetThreadRandom().Next(0, Gobblegums.Count)];
 			}
 
 			return GeneratedGobblegum;
+		}
+
+		private bool GetNewtonsCookbook()
+		{
+			if ((GetSecondsSinceStart() < NewtonsCookbookLastRefreshTime + NewtonsCookbookRefreshIntervalInSeconds) && CurrentNewtonsCookbook.Count > 0) return true;
+
+			CurrentNewtonsCookbook = new List<Recipe>();
+
+			var html = @"https://bo3.online/index.php#gums";
+			try
+			{
+				HtmlWeb web = new HtmlWeb();
+				var doc = web.Load(html);
+				var gums = doc.GetElementbyId("gums");
+
+				var htmlDoc = new HtmlAgilityPack.HtmlDocument();
+				htmlDoc.LoadHtml(gums.OuterHtml);
+
+				var nodes = htmlDoc.DocumentNode.SelectNodes("//img");
+
+				foreach (var node in nodes)
+				{
+					Recipe recipe = new Recipe();
+
+					List<string> inputNodes = Regex.Replace(node.Attributes["onclick"].Value, @"\bdrawin_dialog\b|[\(\)']", "").Split(',').ToList();
+
+					recipe.output = GetNewtonsBookGobblegumByID(int.Parse(Regex.Replace(node.Attributes["src"].Value, @"img\/|.png", "")));
+
+					int inputNodeID = 0;
+					foreach(string inputNode in inputNodes)
+					{
+						if (!inputNode.StartsWith(".png") && inputNode.EndsWith(".png"))
+						{
+							switch (inputNodeID)
+							{
+								case 0:
+									recipe.firstInput = GetNewtonsBookGobblegumByID(int.Parse(inputNode.Replace(".png", "")));
+									break;
+								case 1:
+									recipe.secondInput = GetNewtonsBookGobblegumByID(int.Parse(inputNode.Replace(".png", "")));
+									break;
+								case 2:
+									recipe.thirdInput = GetNewtonsBookGobblegumByID(int.Parse(inputNode.Replace(".png", "")));
+									break;
+							}
+							inputNodeID++;
+						}
+					}
+
+					CurrentNewtonsCookbook.Add(recipe);
+				}
+				NewtonsCookbookLastRefreshTime = GetSecondsSinceStart();
+				return true;
+			}
+			catch (Exception)
+			{
+				CurrentNewtonsCookbook = new List<Recipe>();
+				return false;
+			}
+		}
+
+		private void SetNewtonsCookbookStatus(string status)
+		{
+			NewtonsCookbookStatusLabel.Text = status;
+			NewtonsCookbookStatusLabel.Visible = !string.IsNullOrWhiteSpace(status);
+		}
+
+		private Gobblegum GetNewtonsBookGobblegumByID(int id)
+		{
+			switch (id)
+			{
+				case 1:
+					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Aftertaste");
+				case 2:
+					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Board Games");
+				case 3:
+					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Bullet Boost");
+				case 4:
+					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Burned Out");
+				case 5:
+					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Cache Back");
+				case 6:
+					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Crate Power");
+				case 8:
+					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Dead of Nuclear Winter");
+				case 9:
+					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Disorderly Combat");
+				case 10:
+					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Ephemeral Enhancement");
+				case 11:
+					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Fatal Contraption");
+				case 12:
+					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Fear in Headlights");
+				case 14:
+					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Head Drama");
+				case 15:
+					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "I'm Feeling Lucky");
+				case 16:
+					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Idle Eyes");
+				case 17:
+					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Immolation Liquidation");
+				case 18:
+					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Kill Joy");
+				case 19:
+					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Killing Time");
+				case 20:
+					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Licensed Contractor");
+				case 21:
+					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Mind Blown");
+				case 22:
+					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Near Death Experience");
+				case 23:
+					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "On the House");
+				case 24:
+					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Perkaholic");
+				case 25:
+					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Phoenix Up");
+				case 26:
+					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Pop Shocks");
+				case 27:
+					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Power Vacuum");
+				case 28:
+					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Profit Sharing");
+				case 29:
+					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Reign Drops");
+				case 30:
+					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Respin Cycle");
+				case 31:
+					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Round Robbin'");
+				case 32:
+					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Secret Shopper");
+				case 33:
+					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Self Medication");
+				case 34:
+					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Shopping Free");
+				case 35:
+					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Slaughter Slide");
+				case 36:
+					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Temporal Gift");
+				case 37:
+					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Unbearable");
+				case 38:
+					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Undead Man Walking");
+				case 39:
+					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Unquenchable");
+				case 40:
+					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Wall Power");
+				case 41:
+					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Who's Keeping Score?");
+				default:
+					return null;
+			}
+		}
+
+		private int GetSecondsSinceStart()
+		{
+			return (int)(DateTime.UtcNow - System.Diagnostics.Process.GetCurrentProcess().StartTime.ToUniversalTime()).TotalSeconds;
 		}
 	}
 }
