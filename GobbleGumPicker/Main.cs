@@ -21,6 +21,7 @@ namespace GobbleGumPicker
 		{
 			public enum Color
 			{
+				None,
 				Blue, // round-based
 				Orange, // activates immediately
 				Green, // time-based
@@ -29,6 +30,7 @@ namespace GobbleGumPicker
 
 			public enum Rarity
 			{
+				None,
 				Classic,
 				Whimsical,
 				Mega,
@@ -36,11 +38,13 @@ namespace GobbleGumPicker
 				UltraRareMega
 			}
 
-			public string name;
-			public string description;
-			public Image image;
-			public Color color;
-			public Rarity rarity;
+			public string name = string.Empty;
+			public string description = string.Empty;
+			public Image image = Resources.Empty;
+			public Color color = Color.None;
+			public Rarity rarity = Rarity.None;
+
+			public Gobblegum() { }
 
 			public Gobblegum(string gobblegumName, Image gobblegumImage, Color gobblegumColor, Rarity gobblegumRarity, string gobblegumDescription)
 			{
@@ -54,11 +58,11 @@ namespace GobbleGumPicker
 
 		public class Recipe
 		{
-			public Gobblegum firstInput;
-			public Gobblegum secondInput;
-			public Gobblegum thirdInput;
+			public Gobblegum firstInput = new Gobblegum();
+			public Gobblegum secondInput = new Gobblegum();
+			public Gobblegum thirdInput = new Gobblegum();
 
-			public Gobblegum output;
+			public Gobblegum output = new Gobblegum();
 
 			public Recipe() { }
 

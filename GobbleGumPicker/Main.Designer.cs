@@ -21,12 +21,6 @@
 			this.NewtonsCookbookOpenButton = new System.Windows.Forms.Button();
 			this.LeveledCheckBox = new System.Windows.Forms.CheckBox();
 			this.WhimsicalCheckBox = new System.Windows.Forms.CheckBox();
-			this.GobblegumButton = new System.Windows.Forms.PictureBox();
-			this.Gobblegum1Image = new System.Windows.Forms.PictureBox();
-			this.Gobblegum2Image = new System.Windows.Forms.PictureBox();
-			this.Gobblegum3Image = new System.Windows.Forms.PictureBox();
-			this.Gobblegum4Image = new System.Windows.Forms.PictureBox();
-			this.Gobblegum5Image = new System.Windows.Forms.PictureBox();
 			this.TutorialLabel = new System.Windows.Forms.Label();
 			this.Gobblegum1Label = new System.Windows.Forms.Label();
 			this.Gobblegum2Label = new System.Windows.Forms.Label();
@@ -34,24 +28,11 @@
 			this.Gobblegum4Label = new System.Windows.Forms.Label();
 			this.Gobblegum5Label = new System.Windows.Forms.Label();
 			this.VersionLabel = new System.Windows.Forms.Label();
-			this.NewtonsCookbookBackground = new System.Windows.Forms.PictureBox();
-			this.NewtonsCookbookOutput1Image = new System.Windows.Forms.PictureBox();
 			this.NewtonsCookbookOutput1Label = new System.Windows.Forms.Label();
-			this.NewtonsCookbookInput1_1Image = new System.Windows.Forms.PictureBox();
 			this.NewtonsCookbookInput1_1Label = new System.Windows.Forms.Label();
-			this.NewtonsCookbookInput1_2Image = new System.Windows.Forms.PictureBox();
-			this.NewtonsCookbookInput2_1Image = new System.Windows.Forms.PictureBox();
 			this.NewtonsCookbookInput1_2Label = new System.Windows.Forms.Label();
 			this.NewtonsCookbookInput1_3Label = new System.Windows.Forms.Label();
-			this.NewtonsCookbookOutput2Image = new System.Windows.Forms.PictureBox();
 			this.NewtonsCookbookOutput2Label = new System.Windows.Forms.Label();
-			this.NewtonsCookbookInput1_3Image = new System.Windows.Forms.PictureBox();
-			this.NewtonsCookbookInput2_2Image = new System.Windows.Forms.PictureBox();
-			this.NewtonsCookbookInput2_3Image = new System.Windows.Forms.PictureBox();
-			this.NewtonsCookbookInput3_1Image = new System.Windows.Forms.PictureBox();
-			this.NewtonsCookbookInput3_2Image = new System.Windows.Forms.PictureBox();
-			this.NewtonsCookbookInput3_3Image = new System.Windows.Forms.PictureBox();
-			this.NewtonsCookbookOutput3Image = new System.Windows.Forms.PictureBox();
 			this.NewtonsCookbookOutput3Label = new System.Windows.Forms.Label();
 			this.NewtonsCookbookInput2_1Label = new System.Windows.Forms.Label();
 			this.NewtonsCookbookInput2_2Label = new System.Windows.Forms.Label();
@@ -63,25 +44,44 @@
 			this.NewtonsCookbookCloseButton = new System.Windows.Forms.Button();
 			this.NewtonsCookbookOnlineProviderLabel = new System.Windows.Forms.Label();
 			this.ClassicCheckBox = new System.Windows.Forms.CheckBox();
+			this.NewtonsCookbookInput3_3Image = new System.Windows.Forms.PictureBox();
+			this.NewtonsCookbookInput3_2Image = new System.Windows.Forms.PictureBox();
+			this.NewtonsCookbookInput3_1Image = new System.Windows.Forms.PictureBox();
+			this.NewtonsCookbookInput2_3Image = new System.Windows.Forms.PictureBox();
+			this.NewtonsCookbookInput2_2Image = new System.Windows.Forms.PictureBox();
+			this.NewtonsCookbookInput2_1Image = new System.Windows.Forms.PictureBox();
+			this.NewtonsCookbookInput1_3Image = new System.Windows.Forms.PictureBox();
+			this.NewtonsCookbookInput1_2Image = new System.Windows.Forms.PictureBox();
+			this.NewtonsCookbookInput1_1Image = new System.Windows.Forms.PictureBox();
+			this.NewtonsCookbookOutput3Image = new System.Windows.Forms.PictureBox();
+			this.NewtonsCookbookOutput2Image = new System.Windows.Forms.PictureBox();
+			this.NewtonsCookbookOutput1Image = new System.Windows.Forms.PictureBox();
+			this.NewtonsCookbookBackground = new System.Windows.Forms.PictureBox();
+			this.GobblegumButton = new System.Windows.Forms.PictureBox();
+			this.Gobblegum1Image = new System.Windows.Forms.PictureBox();
+			this.Gobblegum2Image = new System.Windows.Forms.PictureBox();
+			this.Gobblegum3Image = new System.Windows.Forms.PictureBox();
+			this.Gobblegum4Image = new System.Windows.Forms.PictureBox();
+			this.Gobblegum5Image = new System.Windows.Forms.PictureBox();
+			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookInput3_3Image)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookInput3_2Image)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookInput3_1Image)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookInput2_3Image)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookInput2_2Image)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookInput2_1Image)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookInput1_3Image)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookInput1_2Image)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookInput1_1Image)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookOutput3Image)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookOutput2Image)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookOutput1Image)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookBackground)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.GobblegumButton)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.Gobblegum1Image)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.Gobblegum2Image)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.Gobblegum3Image)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.Gobblegum4Image)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.Gobblegum5Image)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookBackground)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookOutput1Image)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookInput1_1Image)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookInput1_2Image)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookInput2_1Image)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookOutput2Image)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookInput1_3Image)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookInput2_2Image)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookInput2_3Image)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookInput3_1Image)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookInput3_2Image)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookInput3_3Image)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookOutput3Image)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// ToolTip
@@ -153,64 +153,6 @@
 			this.WhimsicalCheckBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			this.WhimsicalCheckBox.UseVisualStyleBackColor = false;
 			this.WhimsicalCheckBox.CheckedChanged += new System.EventHandler(this.WhimsicalCheckedChanged);
-			// 
-			// GobblegumButton
-			// 
-			this.GobblegumButton.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.GobblegumButton.Image = global::GobbleGumPicker.Properties.Resources.GobbleGumMachine;
-			this.GobblegumButton.Location = new System.Drawing.Point(12, 12);
-			this.GobblegumButton.Name = "GobblegumButton";
-			this.GobblegumButton.Size = new System.Drawing.Size(114, 360);
-			this.GobblegumButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.GobblegumButton.TabIndex = 6;
-			this.GobblegumButton.TabStop = false;
-			this.GobblegumButton.Click += new System.EventHandler(this.GobblegumMachineClick);
-			this.GobblegumButton.DoubleClick += new System.EventHandler(this.GobblegumMachineClick);
-			// 
-			// Gobblegum1Image
-			// 
-			this.Gobblegum1Image.Location = new System.Drawing.Point(201, 142);
-			this.Gobblegum1Image.Name = "Gobblegum1Image";
-			this.Gobblegum1Image.Size = new System.Drawing.Size(100, 100);
-			this.Gobblegum1Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.Gobblegum1Image.TabIndex = 3;
-			this.Gobblegum1Image.TabStop = false;
-			// 
-			// Gobblegum2Image
-			// 
-			this.Gobblegum2Image.Location = new System.Drawing.Point(307, 142);
-			this.Gobblegum2Image.Name = "Gobblegum2Image";
-			this.Gobblegum2Image.Size = new System.Drawing.Size(100, 100);
-			this.Gobblegum2Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.Gobblegum2Image.TabIndex = 1;
-			this.Gobblegum2Image.TabStop = false;
-			// 
-			// Gobblegum3Image
-			// 
-			this.Gobblegum3Image.Location = new System.Drawing.Point(413, 142);
-			this.Gobblegum3Image.Name = "Gobblegum3Image";
-			this.Gobblegum3Image.Size = new System.Drawing.Size(100, 100);
-			this.Gobblegum3Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.Gobblegum3Image.TabIndex = 5;
-			this.Gobblegum3Image.TabStop = false;
-			// 
-			// Gobblegum4Image
-			// 
-			this.Gobblegum4Image.Location = new System.Drawing.Point(519, 142);
-			this.Gobblegum4Image.Name = "Gobblegum4Image";
-			this.Gobblegum4Image.Size = new System.Drawing.Size(100, 100);
-			this.Gobblegum4Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.Gobblegum4Image.TabIndex = 4;
-			this.Gobblegum4Image.TabStop = false;
-			// 
-			// Gobblegum5Image
-			// 
-			this.Gobblegum5Image.Location = new System.Drawing.Point(625, 142);
-			this.Gobblegum5Image.Name = "Gobblegum5Image";
-			this.Gobblegum5Image.Size = new System.Drawing.Size(100, 100);
-			this.Gobblegum5Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.Gobblegum5Image.TabIndex = 2;
-			this.Gobblegum5Image.TabStop = false;
 			// 
 			// TutorialLabel
 			// 
@@ -285,24 +227,6 @@
 			this.VersionLabel.Text = "1.0.0.0";
 			this.VersionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			// 
-			// NewtonsCookbookBackground
-			// 
-			this.NewtonsCookbookBackground.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-			this.NewtonsCookbookBackground.Location = new System.Drawing.Point(0, 0);
-			this.NewtonsCookbookBackground.Name = "NewtonsCookbookBackground";
-			this.NewtonsCookbookBackground.Size = new System.Drawing.Size(800, 382);
-			this.NewtonsCookbookBackground.TabIndex = 18;
-			this.NewtonsCookbookBackground.TabStop = false;
-			// 
-			// NewtonsCookbookOutput1Image
-			// 
-			this.NewtonsCookbookOutput1Image.Location = new System.Drawing.Point(81, 42);
-			this.NewtonsCookbookOutput1Image.Name = "NewtonsCookbookOutput1Image";
-			this.NewtonsCookbookOutput1Image.Size = new System.Drawing.Size(100, 100);
-			this.NewtonsCookbookOutput1Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.NewtonsCookbookOutput1Image.TabIndex = 19;
-			this.NewtonsCookbookOutput1Image.TabStop = false;
-			// 
 			// NewtonsCookbookOutput1Label
 			// 
 			this.NewtonsCookbookOutput1Label.Font = new System.Drawing.Font("Escom-Regular", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -313,15 +237,6 @@
 			this.NewtonsCookbookOutput1Label.TabIndex = 20;
 			this.NewtonsCookbookOutput1Label.TextAlign = System.Drawing.ContentAlignment.TopCenter;
 			// 
-			// NewtonsCookbookInput1_1Image
-			// 
-			this.NewtonsCookbookInput1_1Image.Location = new System.Drawing.Point(12, 181);
-			this.NewtonsCookbookInput1_1Image.Name = "NewtonsCookbookInput1_1Image";
-			this.NewtonsCookbookInput1_1Image.Size = new System.Drawing.Size(75, 75);
-			this.NewtonsCookbookInput1_1Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.NewtonsCookbookInput1_1Image.TabIndex = 21;
-			this.NewtonsCookbookInput1_1Image.TabStop = false;
-			// 
 			// NewtonsCookbookInput1_1Label
 			// 
 			this.NewtonsCookbookInput1_1Label.Font = new System.Drawing.Font("Escom-Regular", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -331,24 +246,6 @@
 			this.NewtonsCookbookInput1_1Label.Size = new System.Drawing.Size(75, 33);
 			this.NewtonsCookbookInput1_1Label.TabIndex = 22;
 			this.NewtonsCookbookInput1_1Label.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-			// 
-			// NewtonsCookbookInput1_2Image
-			// 
-			this.NewtonsCookbookInput1_2Image.Location = new System.Drawing.Point(93, 181);
-			this.NewtonsCookbookInput1_2Image.Name = "NewtonsCookbookInput1_2Image";
-			this.NewtonsCookbookInput1_2Image.Size = new System.Drawing.Size(75, 75);
-			this.NewtonsCookbookInput1_2Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.NewtonsCookbookInput1_2Image.TabIndex = 23;
-			this.NewtonsCookbookInput1_2Image.TabStop = false;
-			// 
-			// NewtonsCookbookInput2_1Image
-			// 
-			this.NewtonsCookbookInput2_1Image.Location = new System.Drawing.Point(281, 181);
-			this.NewtonsCookbookInput2_1Image.Name = "NewtonsCookbookInput2_1Image";
-			this.NewtonsCookbookInput2_1Image.Size = new System.Drawing.Size(75, 75);
-			this.NewtonsCookbookInput2_1Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.NewtonsCookbookInput2_1Image.TabIndex = 24;
-			this.NewtonsCookbookInput2_1Image.TabStop = false;
 			// 
 			// NewtonsCookbookInput1_2Label
 			// 
@@ -370,15 +267,6 @@
 			this.NewtonsCookbookInput1_3Label.TabIndex = 26;
 			this.NewtonsCookbookInput1_3Label.TextAlign = System.Drawing.ContentAlignment.TopCenter;
 			// 
-			// NewtonsCookbookOutput2Image
-			// 
-			this.NewtonsCookbookOutput2Image.Location = new System.Drawing.Point(350, 42);
-			this.NewtonsCookbookOutput2Image.Name = "NewtonsCookbookOutput2Image";
-			this.NewtonsCookbookOutput2Image.Size = new System.Drawing.Size(100, 100);
-			this.NewtonsCookbookOutput2Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.NewtonsCookbookOutput2Image.TabIndex = 27;
-			this.NewtonsCookbookOutput2Image.TabStop = false;
-			// 
 			// NewtonsCookbookOutput2Label
 			// 
 			this.NewtonsCookbookOutput2Label.Font = new System.Drawing.Font("Escom-Regular", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -388,69 +276,6 @@
 			this.NewtonsCookbookOutput2Label.Size = new System.Drawing.Size(100, 33);
 			this.NewtonsCookbookOutput2Label.TabIndex = 28;
 			this.NewtonsCookbookOutput2Label.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-			// 
-			// NewtonsCookbookInput1_3Image
-			// 
-			this.NewtonsCookbookInput1_3Image.Location = new System.Drawing.Point(176, 181);
-			this.NewtonsCookbookInput1_3Image.Name = "NewtonsCookbookInput1_3Image";
-			this.NewtonsCookbookInput1_3Image.Size = new System.Drawing.Size(75, 75);
-			this.NewtonsCookbookInput1_3Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.NewtonsCookbookInput1_3Image.TabIndex = 29;
-			this.NewtonsCookbookInput1_3Image.TabStop = false;
-			// 
-			// NewtonsCookbookInput2_2Image
-			// 
-			this.NewtonsCookbookInput2_2Image.Location = new System.Drawing.Point(362, 181);
-			this.NewtonsCookbookInput2_2Image.Name = "NewtonsCookbookInput2_2Image";
-			this.NewtonsCookbookInput2_2Image.Size = new System.Drawing.Size(75, 75);
-			this.NewtonsCookbookInput2_2Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.NewtonsCookbookInput2_2Image.TabIndex = 30;
-			this.NewtonsCookbookInput2_2Image.TabStop = false;
-			// 
-			// NewtonsCookbookInput2_3Image
-			// 
-			this.NewtonsCookbookInput2_3Image.Location = new System.Drawing.Point(443, 181);
-			this.NewtonsCookbookInput2_3Image.Name = "NewtonsCookbookInput2_3Image";
-			this.NewtonsCookbookInput2_3Image.Size = new System.Drawing.Size(75, 75);
-			this.NewtonsCookbookInput2_3Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.NewtonsCookbookInput2_3Image.TabIndex = 31;
-			this.NewtonsCookbookInput2_3Image.TabStop = false;
-			// 
-			// NewtonsCookbookInput3_1Image
-			// 
-			this.NewtonsCookbookInput3_1Image.Location = new System.Drawing.Point(551, 181);
-			this.NewtonsCookbookInput3_1Image.Name = "NewtonsCookbookInput3_1Image";
-			this.NewtonsCookbookInput3_1Image.Size = new System.Drawing.Size(75, 75);
-			this.NewtonsCookbookInput3_1Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.NewtonsCookbookInput3_1Image.TabIndex = 32;
-			this.NewtonsCookbookInput3_1Image.TabStop = false;
-			// 
-			// NewtonsCookbookInput3_2Image
-			// 
-			this.NewtonsCookbookInput3_2Image.Location = new System.Drawing.Point(632, 181);
-			this.NewtonsCookbookInput3_2Image.Name = "NewtonsCookbookInput3_2Image";
-			this.NewtonsCookbookInput3_2Image.Size = new System.Drawing.Size(75, 75);
-			this.NewtonsCookbookInput3_2Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.NewtonsCookbookInput3_2Image.TabIndex = 33;
-			this.NewtonsCookbookInput3_2Image.TabStop = false;
-			// 
-			// NewtonsCookbookInput3_3Image
-			// 
-			this.NewtonsCookbookInput3_3Image.Location = new System.Drawing.Point(713, 181);
-			this.NewtonsCookbookInput3_3Image.Name = "NewtonsCookbookInput3_3Image";
-			this.NewtonsCookbookInput3_3Image.Size = new System.Drawing.Size(75, 75);
-			this.NewtonsCookbookInput3_3Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.NewtonsCookbookInput3_3Image.TabIndex = 34;
-			this.NewtonsCookbookInput3_3Image.TabStop = false;
-			// 
-			// NewtonsCookbookOutput3Image
-			// 
-			this.NewtonsCookbookOutput3Image.Location = new System.Drawing.Point(620, 42);
-			this.NewtonsCookbookOutput3Image.Name = "NewtonsCookbookOutput3Image";
-			this.NewtonsCookbookOutput3Image.Size = new System.Drawing.Size(100, 100);
-			this.NewtonsCookbookOutput3Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.NewtonsCookbookOutput3Image.TabIndex = 35;
-			this.NewtonsCookbookOutput3Image.TabStop = false;
 			// 
 			// NewtonsCookbookOutput3Label
 			// 
@@ -585,6 +410,181 @@
 			this.ClassicCheckBox.UseVisualStyleBackColor = false;
 			this.ClassicCheckBox.CheckedChanged += new System.EventHandler(this.ClassicCheckedChanged);
 			// 
+			// NewtonsCookbookInput3_3Image
+			// 
+			this.NewtonsCookbookInput3_3Image.Location = new System.Drawing.Point(713, 181);
+			this.NewtonsCookbookInput3_3Image.Name = "NewtonsCookbookInput3_3Image";
+			this.NewtonsCookbookInput3_3Image.Size = new System.Drawing.Size(75, 75);
+			this.NewtonsCookbookInput3_3Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.NewtonsCookbookInput3_3Image.TabIndex = 34;
+			this.NewtonsCookbookInput3_3Image.TabStop = false;
+			// 
+			// NewtonsCookbookInput3_2Image
+			// 
+			this.NewtonsCookbookInput3_2Image.Location = new System.Drawing.Point(632, 181);
+			this.NewtonsCookbookInput3_2Image.Name = "NewtonsCookbookInput3_2Image";
+			this.NewtonsCookbookInput3_2Image.Size = new System.Drawing.Size(75, 75);
+			this.NewtonsCookbookInput3_2Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.NewtonsCookbookInput3_2Image.TabIndex = 33;
+			this.NewtonsCookbookInput3_2Image.TabStop = false;
+			// 
+			// NewtonsCookbookInput3_1Image
+			// 
+			this.NewtonsCookbookInput3_1Image.Location = new System.Drawing.Point(551, 181);
+			this.NewtonsCookbookInput3_1Image.Name = "NewtonsCookbookInput3_1Image";
+			this.NewtonsCookbookInput3_1Image.Size = new System.Drawing.Size(75, 75);
+			this.NewtonsCookbookInput3_1Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.NewtonsCookbookInput3_1Image.TabIndex = 32;
+			this.NewtonsCookbookInput3_1Image.TabStop = false;
+			// 
+			// NewtonsCookbookInput2_3Image
+			// 
+			this.NewtonsCookbookInput2_3Image.Location = new System.Drawing.Point(443, 181);
+			this.NewtonsCookbookInput2_3Image.Name = "NewtonsCookbookInput2_3Image";
+			this.NewtonsCookbookInput2_3Image.Size = new System.Drawing.Size(75, 75);
+			this.NewtonsCookbookInput2_3Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.NewtonsCookbookInput2_3Image.TabIndex = 31;
+			this.NewtonsCookbookInput2_3Image.TabStop = false;
+			// 
+			// NewtonsCookbookInput2_2Image
+			// 
+			this.NewtonsCookbookInput2_2Image.Location = new System.Drawing.Point(362, 181);
+			this.NewtonsCookbookInput2_2Image.Name = "NewtonsCookbookInput2_2Image";
+			this.NewtonsCookbookInput2_2Image.Size = new System.Drawing.Size(75, 75);
+			this.NewtonsCookbookInput2_2Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.NewtonsCookbookInput2_2Image.TabIndex = 30;
+			this.NewtonsCookbookInput2_2Image.TabStop = false;
+			// 
+			// NewtonsCookbookInput2_1Image
+			// 
+			this.NewtonsCookbookInput2_1Image.Location = new System.Drawing.Point(281, 181);
+			this.NewtonsCookbookInput2_1Image.Name = "NewtonsCookbookInput2_1Image";
+			this.NewtonsCookbookInput2_1Image.Size = new System.Drawing.Size(75, 75);
+			this.NewtonsCookbookInput2_1Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.NewtonsCookbookInput2_1Image.TabIndex = 24;
+			this.NewtonsCookbookInput2_1Image.TabStop = false;
+			// 
+			// NewtonsCookbookInput1_3Image
+			// 
+			this.NewtonsCookbookInput1_3Image.Location = new System.Drawing.Point(176, 181);
+			this.NewtonsCookbookInput1_3Image.Name = "NewtonsCookbookInput1_3Image";
+			this.NewtonsCookbookInput1_3Image.Size = new System.Drawing.Size(75, 75);
+			this.NewtonsCookbookInput1_3Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.NewtonsCookbookInput1_3Image.TabIndex = 29;
+			this.NewtonsCookbookInput1_3Image.TabStop = false;
+			// 
+			// NewtonsCookbookInput1_2Image
+			// 
+			this.NewtonsCookbookInput1_2Image.Location = new System.Drawing.Point(93, 181);
+			this.NewtonsCookbookInput1_2Image.Name = "NewtonsCookbookInput1_2Image";
+			this.NewtonsCookbookInput1_2Image.Size = new System.Drawing.Size(75, 75);
+			this.NewtonsCookbookInput1_2Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.NewtonsCookbookInput1_2Image.TabIndex = 23;
+			this.NewtonsCookbookInput1_2Image.TabStop = false;
+			// 
+			// NewtonsCookbookInput1_1Image
+			// 
+			this.NewtonsCookbookInput1_1Image.Location = new System.Drawing.Point(12, 181);
+			this.NewtonsCookbookInput1_1Image.Name = "NewtonsCookbookInput1_1Image";
+			this.NewtonsCookbookInput1_1Image.Size = new System.Drawing.Size(75, 75);
+			this.NewtonsCookbookInput1_1Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.NewtonsCookbookInput1_1Image.TabIndex = 21;
+			this.NewtonsCookbookInput1_1Image.TabStop = false;
+			// 
+			// NewtonsCookbookOutput3Image
+			// 
+			this.NewtonsCookbookOutput3Image.Location = new System.Drawing.Point(620, 42);
+			this.NewtonsCookbookOutput3Image.Name = "NewtonsCookbookOutput3Image";
+			this.NewtonsCookbookOutput3Image.Size = new System.Drawing.Size(100, 100);
+			this.NewtonsCookbookOutput3Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.NewtonsCookbookOutput3Image.TabIndex = 35;
+			this.NewtonsCookbookOutput3Image.TabStop = false;
+			// 
+			// NewtonsCookbookOutput2Image
+			// 
+			this.NewtonsCookbookOutput2Image.Location = new System.Drawing.Point(350, 42);
+			this.NewtonsCookbookOutput2Image.Name = "NewtonsCookbookOutput2Image";
+			this.NewtonsCookbookOutput2Image.Size = new System.Drawing.Size(100, 100);
+			this.NewtonsCookbookOutput2Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.NewtonsCookbookOutput2Image.TabIndex = 27;
+			this.NewtonsCookbookOutput2Image.TabStop = false;
+			// 
+			// NewtonsCookbookOutput1Image
+			// 
+			this.NewtonsCookbookOutput1Image.Location = new System.Drawing.Point(81, 42);
+			this.NewtonsCookbookOutput1Image.Name = "NewtonsCookbookOutput1Image";
+			this.NewtonsCookbookOutput1Image.Size = new System.Drawing.Size(100, 100);
+			this.NewtonsCookbookOutput1Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.NewtonsCookbookOutput1Image.TabIndex = 19;
+			this.NewtonsCookbookOutput1Image.TabStop = false;
+			// 
+			// NewtonsCookbookBackground
+			// 
+			this.NewtonsCookbookBackground.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+			this.NewtonsCookbookBackground.Location = new System.Drawing.Point(0, 0);
+			this.NewtonsCookbookBackground.Name = "NewtonsCookbookBackground";
+			this.NewtonsCookbookBackground.Size = new System.Drawing.Size(800, 382);
+			this.NewtonsCookbookBackground.TabIndex = 18;
+			this.NewtonsCookbookBackground.TabStop = false;
+			// 
+			// GobblegumButton
+			// 
+			this.GobblegumButton.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.GobblegumButton.Image = global::GobbleGumPicker.Properties.Resources.GobbleGumMachine;
+			this.GobblegumButton.Location = new System.Drawing.Point(12, 12);
+			this.GobblegumButton.Name = "GobblegumButton";
+			this.GobblegumButton.Size = new System.Drawing.Size(114, 360);
+			this.GobblegumButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.GobblegumButton.TabIndex = 6;
+			this.GobblegumButton.TabStop = false;
+			this.GobblegumButton.Click += new System.EventHandler(this.GobblegumMachineClick);
+			this.GobblegumButton.DoubleClick += new System.EventHandler(this.GobblegumMachineClick);
+			// 
+			// Gobblegum1Image
+			// 
+			this.Gobblegum1Image.Location = new System.Drawing.Point(201, 142);
+			this.Gobblegum1Image.Name = "Gobblegum1Image";
+			this.Gobblegum1Image.Size = new System.Drawing.Size(100, 100);
+			this.Gobblegum1Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.Gobblegum1Image.TabIndex = 3;
+			this.Gobblegum1Image.TabStop = false;
+			// 
+			// Gobblegum2Image
+			// 
+			this.Gobblegum2Image.Location = new System.Drawing.Point(307, 142);
+			this.Gobblegum2Image.Name = "Gobblegum2Image";
+			this.Gobblegum2Image.Size = new System.Drawing.Size(100, 100);
+			this.Gobblegum2Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.Gobblegum2Image.TabIndex = 1;
+			this.Gobblegum2Image.TabStop = false;
+			// 
+			// Gobblegum3Image
+			// 
+			this.Gobblegum3Image.Location = new System.Drawing.Point(413, 142);
+			this.Gobblegum3Image.Name = "Gobblegum3Image";
+			this.Gobblegum3Image.Size = new System.Drawing.Size(100, 100);
+			this.Gobblegum3Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.Gobblegum3Image.TabIndex = 5;
+			this.Gobblegum3Image.TabStop = false;
+			// 
+			// Gobblegum4Image
+			// 
+			this.Gobblegum4Image.Location = new System.Drawing.Point(519, 142);
+			this.Gobblegum4Image.Name = "Gobblegum4Image";
+			this.Gobblegum4Image.Size = new System.Drawing.Size(100, 100);
+			this.Gobblegum4Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.Gobblegum4Image.TabIndex = 4;
+			this.Gobblegum4Image.TabStop = false;
+			// 
+			// Gobblegum5Image
+			// 
+			this.Gobblegum5Image.Location = new System.Drawing.Point(625, 142);
+			this.Gobblegum5Image.Name = "Gobblegum5Image";
+			this.Gobblegum5Image.Size = new System.Drawing.Size(100, 100);
+			this.Gobblegum5Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.Gobblegum5Image.TabIndex = 2;
+			this.Gobblegum5Image.TabStop = false;
+			// 
 			// Main
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -642,25 +642,25 @@
 			this.Name = "Main";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "GobbleGum Picker";
+			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookInput3_3Image)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookInput3_2Image)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookInput3_1Image)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookInput2_3Image)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookInput2_2Image)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookInput2_1Image)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookInput1_3Image)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookInput1_2Image)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookInput1_1Image)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookOutput3Image)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookOutput2Image)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookOutput1Image)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookBackground)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.GobblegumButton)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.Gobblegum1Image)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.Gobblegum2Image)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.Gobblegum3Image)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.Gobblegum4Image)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.Gobblegum5Image)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookBackground)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookOutput1Image)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookInput1_1Image)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookInput1_2Image)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookInput2_1Image)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookOutput2Image)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookInput1_3Image)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookInput2_2Image)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookInput2_3Image)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookInput3_1Image)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookInput3_2Image)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookInput3_3Image)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.NewtonsCookbookOutput3Image)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

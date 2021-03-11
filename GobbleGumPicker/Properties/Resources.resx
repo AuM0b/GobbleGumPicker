@@ -1,5 +1,64 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
@@ -65,6 +124,9 @@
   <data name="ToneDeath" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ToneDeath.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="EyeCandy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EyeCandy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ImmolationLiquidation" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ImmolationLiquidation.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -74,14 +136,11 @@
   <data name="ReignDrops" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ReignDrops.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="OnTheHouse" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\OnTheHouse.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Coagulant" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Coagulant.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ExtraCredit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ExtraCredit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ShoppingFree" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ShoppingFree.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="KillingTime" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\KillingTime.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -89,11 +148,8 @@
   <data name="EphemeralEnhancement" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\EphemeralEnhancement.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="RoundRobbin" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RoundRobbin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="SlaughterSlide" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SlaughterSlide.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="TemporalGift" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TemporalGift.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="LuckyCrit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LuckyCrit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -104,11 +160,14 @@
   <data name="CacheBack" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CacheBack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="EyeCandy" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\EyeCandy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="CratePower" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CratePower.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="KillJoy" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\KillJoy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RoundRobbin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RoundRobbin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="UndeadManWalking" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\UndeadManWalking.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -125,14 +184,11 @@
   <data name="PhoenixUp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PhoenixUp.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ShoppingFree" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ShoppingFree.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="FlavorHexed" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FlavorHexed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="TemporalGift" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TemporalGift.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Unbearable" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Unbearable.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="IdleEyes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IdleEyes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -140,11 +196,11 @@
   <data name="AnywhereButHere" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AnywhereButHere.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="MindBlown" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MindBlown.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Aftertaste" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Aftertaste.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GobbleGumMachine" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GobbleGumMachine.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BoardGames" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BoardGames.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -155,8 +211,8 @@
   <data name="WhosKeepingScore" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\WhosKeepingScore.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Unbearable" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Unbearable.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ImFeelingLucky" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ImFeelingLucky.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ProjectileVomiting" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ProjectileVomiting.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -170,11 +226,14 @@
   <data name="DisorderlyCombat" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DisorderlyCombat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="DeadOfNuclearWinter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DeadOfNuclearWinter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Perkaholic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Perkaholic.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="WallPower" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\WallPower.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="FiringOnAllCylinders" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FiringOnAllCylinders.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="NewtonianNegation" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\NewtonianNegation.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -191,8 +250,8 @@
   <data name="InPlainSight" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\InPlainSight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="NearDeathExperience" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\NearDeathExperience.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="OnTheHouse" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OnTheHouse.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Impatient" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Impatient.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -209,8 +268,8 @@
   <data name="Unquenchable" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Unquenchable.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DeadOfNuclearWinter" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DeadOfNuclearWinter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SlaughterSlide" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SlaughterSlide.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ArsenalAccelerator" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ArsenalAccelerator.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -224,14 +283,14 @@
   <data name="DangerClosest" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DangerClosest.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="FiringOnAllCylinders" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FiringOnAllCylinders.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="MindBlown" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MindBlown.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PopShocks" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PopShocks.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BulletBoost" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BulletBoost.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ExtraCredit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ExtraCredit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="StockOption" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\StockOption.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -242,13 +301,16 @@
   <data name="ProfitSharing" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ProfitSharing.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ImFeelingLucky" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ImFeelingLucky.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="NearDeathExperience" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NearDeathExperience.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="GobbleGumMachine" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\GobbleGumMachine.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="WallPower" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WallPower.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="CratePower" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CratePower.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BulletBoost" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BulletBoost.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Empty" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Empty.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
