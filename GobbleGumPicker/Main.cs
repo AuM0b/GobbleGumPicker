@@ -177,8 +177,6 @@ namespace GobbleGumPicker
 
 		private void Init()
 		{
-			GetNewtonsCookbook();
-
 			RefreshTooltips();
 			RefreshGobblegumsDisplay();
 			RefreshNewtonsCookbookDisplay();
