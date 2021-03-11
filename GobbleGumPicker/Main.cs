@@ -169,6 +169,7 @@ namespace GobbleGumPicker
 
 		private bool NewtonsCookbookOpened = false;
 
+		private bool EnableClassic = true;
 		private bool EnableLeveled = true;
 		private bool EnableWhimsical = true;
 
@@ -192,6 +193,12 @@ namespace GobbleGumPicker
 			GenerateGobblegumSet();
 
 			RefreshGobblegumsDisplay();
+			RefreshTooltips();
+		}
+
+		private void ClassicCheckedChanged(object sender, EventArgs e)
+		{
+			EnableClassic = ClassicCheckBox.Checked;
 			RefreshTooltips();
 		}
 
@@ -231,8 +238,9 @@ namespace GobbleGumPicker
 
 		private void RefreshTooltips()
 		{
+			ToolTip.SetToolTip(ClassicCheckBox, (EnableClassic ? "Disable" : "Enable") + " rolling of five default GobbleGums (Always Done Swiftly, Arms Grace, etc.)");
 			ToolTip.SetToolTip(LeveledCheckBox, (EnableLeveled ? "Disable" : "Enable") + " rolling of level-awarded GobbleGums (Impatient, Sword Flay, etc.)");
-			ToolTip.SetToolTip(WhimsicalCheckBox, (EnableWhimsical ? "Disable" : "Enable") + " rolling of Whimsical GobbleGums (Eye Candy, Tone Death, etc.)");
+			ToolTip.SetToolTip(WhimsicalCheckBox, (EnableWhimsical ? "Disable" : "Enable") + " rolling of DLC GobbleGums (Eye Candy, Tone Death, etc.)");
 
 			if (CurrentGobblegumSet.Count == 5)
 			{
@@ -465,23 +473,40 @@ namespace GobbleGumPicker
 
 		private void GenerateGobblegumSet()
 		{
-			CurrentGobblegumSet = new List<Gobblegum>
-			{
-				GenerateGobblegum(),
-				GenerateGobblegum(),
-				GenerateGobblegum(),
-				GenerateGobblegum(),
-				GenerateGobblegum()
-			};
+			/*
+			 * Don't initialize list like this - it causes
+			 * duplicates to be created when generating Gobblegums
+			 * 
+				CurrentGobblegumSet = new List<Gobblegum>
+				{
+					GenerateGobblegum(),
+					GenerateGobblegum(),
+					GenerateGobblegum(),
+					GenerateGobblegum(),
+					GenerateGobblegum()
+				};
+			*/
+
+			CurrentGobblegumSet = new List<Gobblegum>();
+
+			CurrentGobblegumSet.Add(GenerateGobblegum());
+			CurrentGobblegumSet.Add(GenerateGobblegum());
+			CurrentGobblegumSet.Add(GenerateGobblegum());
+			CurrentGobblegumSet.Add(GenerateGobblegum());
+			CurrentGobblegumSet.Add(GenerateGobblegum());
 		}
 
 		private Gobblegum GenerateGobblegum()
 		{
 			List<Gobblegum> Gobblegums = new List<Gobblegum>(GobblegumDatabase);
 
-			if (!EnableWhimsical)
+			if (!EnableClassic)
 			{
-				Gobblegums.RemoveAll(gobblegum => gobblegum.rarity == Gobblegum.Rarity.Whimsical);
+				Gobblegums.Remove(Gobblegums.Find(gobblegum => gobblegum.name == "Always Done Swiftly"));
+				Gobblegums.Remove(Gobblegums.Find(gobblegum => gobblegum.name == "Arms Grace"));
+				Gobblegums.Remove(Gobblegums.Find(gobblegum => gobblegum.name == "Coagulant"));
+				Gobblegums.Remove(Gobblegums.Find(gobblegum => gobblegum.name == "In Plain Sight"));
+				Gobblegums.Remove(Gobblegums.Find(gobblegum => gobblegum.name == "Stock Option"));
 			}
 
 			if (!EnableLeveled)
@@ -496,6 +521,11 @@ namespace GobbleGumPicker
 				Gobblegums.Remove(Gobblegums.Find(gobblegum => gobblegum.name == "Lucky Crit"));
 				Gobblegums.Remove(Gobblegums.Find(gobblegum => gobblegum.name == "Now You See Me"));
 				Gobblegums.Remove(Gobblegums.Find(gobblegum => gobblegum.name == "Alchemical Antithesis"));
+			}
+
+			if (!EnableWhimsical)
+			{
+				Gobblegums.RemoveAll(gobblegum => gobblegum.rarity == Gobblegum.Rarity.Whimsical);
 			}
 
 			Gobblegum GeneratedGobblegum = Gobblegums[RandomProvider.GetThreadRandom().Next(0, Gobblegums.Count)];

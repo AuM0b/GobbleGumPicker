@@ -62,6 +62,7 @@
 			this.NewtonsCookbookStatusLabel = new System.Windows.Forms.Label();
 			this.NewtonsCookbookCloseButton = new System.Windows.Forms.Button();
 			this.NewtonsCookbookOnlineProviderLabel = new System.Windows.Forms.Label();
+			this.ClassicCheckBox = new System.Windows.Forms.CheckBox();
 			((System.ComponentModel.ISupportInitialize)(this.GobblegumButton)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.Gobblegum1Image)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.Gobblegum2Image)).BeginInit();
@@ -561,6 +562,29 @@
 			this.NewtonsCookbookOnlineProviderLabel.Text = "provided by bo3.online";
 			this.NewtonsCookbookOnlineProviderLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
+			// ClassicCheckBox
+			// 
+			this.ClassicCheckBox.Appearance = System.Windows.Forms.Appearance.Button;
+			this.ClassicCheckBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.ClassicCheckBox.Checked = true;
+			this.ClassicCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.ClassicCheckBox.FlatAppearance.BorderSize = 0;
+			this.ClassicCheckBox.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(88)))), ((int)(((byte)(5)))));
+			this.ClassicCheckBox.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(44)))), ((int)(((byte)(5)))));
+			this.ClassicCheckBox.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(122)))), ((int)(((byte)(5)))));
+			this.ClassicCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.ClassicCheckBox.Font = new System.Drawing.Font("Escom-Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ClassicCheckBox.ForeColor = System.Drawing.Color.White;
+			this.ClassicCheckBox.Location = new System.Drawing.Point(482, 12);
+			this.ClassicCheckBox.Name = "ClassicCheckBox";
+			this.ClassicCheckBox.Size = new System.Drawing.Size(98, 28);
+			this.ClassicCheckBox.TabIndex = 47;
+			this.ClassicCheckBox.TabStop = false;
+			this.ClassicCheckBox.Text = "Classic";
+			this.ClassicCheckBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.ClassicCheckBox.UseVisualStyleBackColor = false;
+			this.ClassicCheckBox.CheckedChanged += new System.EventHandler(this.ClassicCheckedChanged);
+			// 
 			// Main
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -611,6 +635,7 @@
 			this.Controls.Add(this.Gobblegum4Image);
 			this.Controls.Add(this.Gobblegum5Image);
 			this.Controls.Add(this.NewtonsCookbookOpenButton);
+			this.Controls.Add(this.ClassicCheckBox);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximizeBox = false;
@@ -686,6 +711,7 @@
 		private System.Windows.Forms.Button NewtonsCookbookCloseButton;
 		private System.Windows.Forms.Button NewtonsCookbookOpenButton;
 		private System.Windows.Forms.Label NewtonsCookbookOnlineProviderLabel;
+		private System.Windows.Forms.CheckBox ClassicCheckBox;
 	}
 }
 
