@@ -564,7 +564,7 @@ namespace GobbleGumPicker
 
 					List<string> inputNodes = Regex.Replace(node.Attributes["onclick"].Value, @"\bdrawin_dialog\b|[\(\)']", "").Split(',').ToList();
 
-					recipe.output = GetNewtonsBookGobblegumByID(int.Parse(Regex.Replace(node.Attributes["src"].Value, @"img\/|.png", "")));
+					recipe.output = GetNewtonsCookbookGobblegumByID(int.Parse(Regex.Replace(node.Attributes["src"].Value, @"img\/|.png", "")));
 
 					int inputNodeID = 0;
 					foreach (string inputNode in inputNodes)
@@ -574,13 +574,13 @@ namespace GobbleGumPicker
 							switch (inputNodeID)
 							{
 								case 0:
-									recipe.firstInput = GetNewtonsBookGobblegumByID(int.Parse(inputNode.Replace(".png", "")));
+									recipe.firstInput = GetNewtonsCookbookGobblegumByID(int.Parse(inputNode.Replace(".png", "")));
 									break;
 								case 1:
-									recipe.secondInput = GetNewtonsBookGobblegumByID(int.Parse(inputNode.Replace(".png", "")));
+									recipe.secondInput = GetNewtonsCookbookGobblegumByID(int.Parse(inputNode.Replace(".png", "")));
 									break;
 								case 2:
-									recipe.thirdInput = GetNewtonsBookGobblegumByID(int.Parse(inputNode.Replace(".png", "")));
+									recipe.thirdInput = GetNewtonsCookbookGobblegumByID(int.Parse(inputNode.Replace(".png", "")));
 									break;
 							}
 							inputNodeID++;
@@ -605,7 +605,7 @@ namespace GobbleGumPicker
 			NewtonsCookbookStatusLabel.Visible = !string.IsNullOrWhiteSpace(status);
 		}
 
-		private Gobblegum GetNewtonsBookGobblegumByID(int id)
+		private Gobblegum GetNewtonsCookbookGobblegumByID(int id)
 		{
 			switch (id)
 			{
