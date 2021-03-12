@@ -567,7 +567,7 @@ namespace GobbleGumPicker
 					recipe.output = GetNewtonsBookGobblegumByID(int.Parse(Regex.Replace(node.Attributes["src"].Value, @"img\/|.png", "")));
 
 					int inputNodeID = 0;
-					foreach(string inputNode in inputNodes)
+					foreach (string inputNode in inputNodes)
 					{
 						if (!inputNode.StartsWith(".png") && inputNode.EndsWith(".png"))
 						{
