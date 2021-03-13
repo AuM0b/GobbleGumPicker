@@ -626,6 +626,7 @@ namespace GobbleGumPicker
 				case 9:
 					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Disorderly Combat");
 				case 10:
+				case 45:
 					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Ephemeral Enhancement");
 				case 11:
 					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Fatal Contraption");
@@ -687,6 +688,8 @@ namespace GobbleGumPicker
 					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Wall Power");
 				case 41:
 					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Who's Keeping Score?");
+				case 44:
+					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Board To Death");
 				default:
 					return null;
 			}
