@@ -691,7 +691,7 @@ namespace GobbleGumPicker
 				case 44:
 					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Board To Death");
 				default:
-					return null;
+					return new Gobblegum();
 			}
 		}
 
