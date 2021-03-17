@@ -345,99 +345,119 @@ namespace GobbleGumPicker
 		{
 			NewtonsCookbookBackground.Visible = NewtonsCookbookOpened;
 
-			NewtonsCookbookOnlineProviderLabel.Visible = NewtonsCookbookOpened;
+			NewtonsCookbookStatusLabel.Visible = !string.IsNullOrWhiteSpace(NewtonsCookbookStatusLabel.Text) && NewtonsCookbookOpened;
 			NewtonsCookbookCloseButton.BringToFront();
+
+			NewtonsCookbookOnlineProviderLabel.Visible = NewtonsCookbookOpened;
 
 			NewtonsCookbookCloseButton.Visible = NewtonsCookbookOpened;
 			NewtonsCookbookCloseButton.BringToFront();
 
-			NewtonsCookbookStatusLabel.Visible = !string.IsNullOrWhiteSpace(NewtonsCookbookStatusLabel.Text) && NewtonsCookbookOpened;
-
 			NewtonsCookbookOutput1Image.Visible = NewtonsCookbookOpened;
-			NewtonsCookbookOutput1Image.BringToFront();
 			NewtonsCookbookOutput1Label.Visible = NewtonsCookbookOpened;
-			NewtonsCookbookOutput1Label.BringToFront();
 
 			NewtonsCookbookInput1_1Image.Visible = NewtonsCookbookOpened;
-			NewtonsCookbookInput1_1Image.BringToFront();
 			NewtonsCookbookInput1_1Label.Visible = NewtonsCookbookOpened;
-			NewtonsCookbookInput1_1Label.BringToFront();
 			NewtonsCookbookInput1_2Image.Visible = NewtonsCookbookOpened;
-			NewtonsCookbookInput1_2Image.BringToFront();
 			NewtonsCookbookInput1_2Label.Visible = NewtonsCookbookOpened;
-			NewtonsCookbookInput1_2Label.BringToFront();
 			NewtonsCookbookInput1_3Image.Visible = NewtonsCookbookOpened;
-			NewtonsCookbookInput1_3Image.BringToFront();
 			NewtonsCookbookInput1_3Label.Visible = NewtonsCookbookOpened;
-			NewtonsCookbookInput1_3Label.BringToFront();
 
 			NewtonsCookbookOutput2Image.Visible = NewtonsCookbookOpened;
-			NewtonsCookbookOutput2Image.BringToFront();
 			NewtonsCookbookOutput2Label.Visible = NewtonsCookbookOpened;
-			NewtonsCookbookOutput2Label.BringToFront();
 
 			NewtonsCookbookInput2_1Image.Visible = NewtonsCookbookOpened;
-			NewtonsCookbookInput2_1Image.BringToFront();
 			NewtonsCookbookInput2_1Label.Visible = NewtonsCookbookOpened;
-			NewtonsCookbookInput2_1Label.BringToFront();
 			NewtonsCookbookInput2_2Image.Visible = NewtonsCookbookOpened;
-			NewtonsCookbookInput2_2Image.BringToFront();
 			NewtonsCookbookInput2_2Label.Visible = NewtonsCookbookOpened;
-			NewtonsCookbookInput2_2Label.BringToFront();
 			NewtonsCookbookInput2_3Image.Visible = NewtonsCookbookOpened;
-			NewtonsCookbookInput2_3Image.BringToFront();
 			NewtonsCookbookInput2_3Label.Visible = NewtonsCookbookOpened;
-			NewtonsCookbookInput2_3Label.BringToFront();
 
 			NewtonsCookbookOutput3Image.Visible = NewtonsCookbookOpened;
-			NewtonsCookbookOutput3Image.BringToFront();
 			NewtonsCookbookOutput3Label.Visible = NewtonsCookbookOpened;
-			NewtonsCookbookOutput3Label.BringToFront();
 
 			NewtonsCookbookInput3_1Image.Visible = NewtonsCookbookOpened;
-			NewtonsCookbookInput3_1Image.BringToFront();
 			NewtonsCookbookInput3_1Label.Visible = NewtonsCookbookOpened;
-			NewtonsCookbookInput3_1Label.BringToFront();
 			NewtonsCookbookInput3_2Image.Visible = NewtonsCookbookOpened;
-			NewtonsCookbookInput3_2Image.BringToFront();
 			NewtonsCookbookInput3_2Label.Visible = NewtonsCookbookOpened;
-			NewtonsCookbookInput3_2Label.BringToFront();
 			NewtonsCookbookInput3_3Image.Visible = NewtonsCookbookOpened;
-			NewtonsCookbookInput3_3Image.BringToFront();
 			NewtonsCookbookInput3_3Label.Visible = NewtonsCookbookOpened;
-			NewtonsCookbookInput3_3Label.BringToFront();
 
 			if (CurrentNewtonsCookbook.Count == 3)
 			{
+				NewtonsCookbookOnlineProviderLabel.BringToFront();
+
 				NewtonsCookbookOutput1Label.Text = CurrentNewtonsCookbook[0].output.name;
+				NewtonsCookbookOutput1Label.BringToFront();
+
 				NewtonsCookbookOutput1Image.Image = CurrentNewtonsCookbook[0].output.image;
+				NewtonsCookbookOutput1Image.BringToFront();
 
 				NewtonsCookbookInput1_1Label.Text = CurrentNewtonsCookbook[0].firstInput.name;
+				NewtonsCookbookInput1_1Label.BringToFront();
+
 				NewtonsCookbookInput1_1Image.Image = CurrentNewtonsCookbook[0].firstInput.image;
+				NewtonsCookbookInput1_1Image.BringToFront();
+
 				NewtonsCookbookInput1_2Label.Text = CurrentNewtonsCookbook[0].secondInput.name;
+				NewtonsCookbookInput1_2Label.BringToFront();
+
 				NewtonsCookbookInput1_2Image.Image = CurrentNewtonsCookbook[0].secondInput.image;
+				NewtonsCookbookInput1_2Image.BringToFront();
+
 				NewtonsCookbookInput1_3Label.Text = CurrentNewtonsCookbook[0].thirdInput.name;
+				NewtonsCookbookInput1_3Label.BringToFront();
+
 				NewtonsCookbookInput1_3Image.Image = CurrentNewtonsCookbook[0].thirdInput.image;
+				NewtonsCookbookInput1_3Image.BringToFront();
 
 				NewtonsCookbookOutput2Label.Text = CurrentNewtonsCookbook[1].output.name;
+				NewtonsCookbookOutput2Label.BringToFront();
+
 				NewtonsCookbookOutput2Image.Image = CurrentNewtonsCookbook[1].output.image;
+				NewtonsCookbookOutput2Image.BringToFront();
 
 				NewtonsCookbookInput2_1Label.Text = CurrentNewtonsCookbook[1].firstInput.name;
+				NewtonsCookbookInput2_1Label.BringToFront();
+
 				NewtonsCookbookInput2_1Image.Image = CurrentNewtonsCookbook[1].firstInput.image;
+				NewtonsCookbookInput2_1Image.BringToFront();
+
 				NewtonsCookbookInput2_2Label.Text = CurrentNewtonsCookbook[1].secondInput.name;
+				NewtonsCookbookInput2_2Label.BringToFront();
+
 				NewtonsCookbookInput2_2Image.Image = CurrentNewtonsCookbook[1].secondInput.image;
+				NewtonsCookbookInput2_2Image.BringToFront();
+
 				NewtonsCookbookInput2_3Label.Text = CurrentNewtonsCookbook[1].thirdInput.name;
+				NewtonsCookbookInput2_3Label.BringToFront();
+
 				NewtonsCookbookInput2_3Image.Image = CurrentNewtonsCookbook[1].thirdInput.image;
+				NewtonsCookbookInput2_3Image.BringToFront();
 
 				NewtonsCookbookOutput3Label.Text = CurrentNewtonsCookbook[2].output.name;
+				NewtonsCookbookOutput3Label.BringToFront();
+
 				NewtonsCookbookOutput3Image.Image = CurrentNewtonsCookbook[2].output.image;
+				NewtonsCookbookOutput3Image.BringToFront();
 
 				NewtonsCookbookInput3_1Label.Text = CurrentNewtonsCookbook[2].firstInput.name;
+				NewtonsCookbookInput3_1Label.BringToFront();
+
 				NewtonsCookbookInput3_1Image.Image = CurrentNewtonsCookbook[2].firstInput.image;
+				NewtonsCookbookInput3_1Image.BringToFront();
+
 				NewtonsCookbookInput3_2Label.Text = CurrentNewtonsCookbook[2].secondInput.name;
+				NewtonsCookbookInput3_2Label.BringToFront();
+
 				NewtonsCookbookInput3_2Image.Image = CurrentNewtonsCookbook[2].secondInput.image;
+				NewtonsCookbookInput3_2Image.BringToFront();
+
 				NewtonsCookbookInput3_3Label.Text = CurrentNewtonsCookbook[2].thirdInput.name;
+				NewtonsCookbookInput3_3Label.BringToFront();
+
 				NewtonsCookbookInput3_3Image.Image = CurrentNewtonsCookbook[2].thirdInput.image;
+				NewtonsCookbookInput3_3Image.BringToFront();
 			}
 			else
 			{
@@ -562,9 +582,9 @@ namespace GobbleGumPicker
 				{
 					Recipe recipe = new Recipe();
 
-					List<string> inputNodes = Regex.Replace(node.Attributes["onclick"].Value, @"\bdrawin_dialog\b|[\(\)']", "").Split(',').ToList();
+					List<string> inputNodes = Regex.Replace(node.Attributes["onclick"].Value.ToLower(), @"\bdrawin_dialog\b|[\(\)']", "").Split(',').ToList();
 
-					recipe.output = GetNewtonsCookbookGobblegumByID(int.Parse(Regex.Replace(node.Attributes["src"].Value, @"img\/|.png", "")));
+					recipe.output = GetNewtonsCookbookGobblegumByID(int.Parse(Regex.Replace(node.Attributes["src"].Value.ToLower(), @"img\/|.png", "")));
 
 					int inputNodeID = 0;
 					foreach (string inputNode in inputNodes)
@@ -621,6 +641,8 @@ namespace GobbleGumPicker
 					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Cache Back");
 				case 6:
 					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Crate Power");
+				case 7:
+					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Crawl Space"); // potential id
 				case 8:
 					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Dead of Nuclear Winter");
 				case 9:
@@ -632,6 +654,8 @@ namespace GobbleGumPicker
 					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Fatal Contraption");
 				case 12:
 					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Fear in Headlights");
+				case 13:
+					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Flavor Hexed"); // potential id
 				case 14:
 					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Head Drama");
 				case 15:
@@ -688,6 +712,10 @@ namespace GobbleGumPicker
 					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Wall Power");
 				case 41:
 					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Who's Keeping Score?");
+				case 42:
+					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Extra Credit");
+				case 43:
+					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Soda Fountain");
 				case 44:
 					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Board To Death");
 				default:
