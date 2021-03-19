@@ -584,23 +584,23 @@ namespace GobbleGumPicker
 
 					List<string> inputNodes = Regex.Replace(node.Attributes["onclick"].Value.ToLower(), @"\bdrawin_dialog\b|[\(\)']", "").Split(',').ToList();
 
-					recipe.output = GetNewtonsCookbookGobblegumByID(int.Parse(Regex.Replace(node.Attributes["src"].Value.ToLower(), @"img\/|.png", "")));
+					recipe.output = GetNewtonsCookbookGobblegumByID(int.Parse(Regex.Replace(node.Attributes["src"].Value.ToLower(), @"img\/|.png|.webp", "")));
 
 					int inputNodeID = 0;
 					foreach (string inputNode in inputNodes)
 					{
-						if (!inputNode.StartsWith(".png") && inputNode.EndsWith(".png"))
+						if ((!inputNode.StartsWith(".png") && inputNode.EndsWith(".png")) || (!inputNode.StartsWith(".webp") && inputNode.EndsWith(".webp")))
 						{
 							switch (inputNodeID)
 							{
 								case 0:
-									recipe.firstInput = GetNewtonsCookbookGobblegumByID(int.Parse(inputNode.Replace(".png", "")));
+									recipe.firstInput = GetNewtonsCookbookGobblegumByID(int.Parse(inputNode.Replace(".png", "").Replace(".webp", "")));
 									break;
 								case 1:
-									recipe.secondInput = GetNewtonsCookbookGobblegumByID(int.Parse(inputNode.Replace(".png", "")));
+									recipe.secondInput = GetNewtonsCookbookGobblegumByID(int.Parse(inputNode.Replace(".png", "").Replace(".webp", "")));
 									break;
 								case 2:
-									recipe.thirdInput = GetNewtonsCookbookGobblegumByID(int.Parse(inputNode.Replace(".png", "")));
+									recipe.thirdInput = GetNewtonsCookbookGobblegumByID(int.Parse(inputNode.Replace(".png", "").Replace(".webp", "")));
 									break;
 							}
 							inputNodeID++;
@@ -642,7 +642,7 @@ namespace GobbleGumPicker
 				case 6:
 					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Crate Power");
 				case 7:
-					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Crawl Space"); // potential id
+					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Crawl Space");
 				case 8:
 					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Dead of Nuclear Winter");
 				case 9:
@@ -655,7 +655,7 @@ namespace GobbleGumPicker
 				case 12:
 					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Fear in Headlights");
 				case 13:
-					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Flavor Hexed"); // potential id
+					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Flavor Hexed");
 				case 14:
 					return GobblegumDatabase.Find(gobblegum => gobblegum.name == "Head Drama");
 				case 15:
